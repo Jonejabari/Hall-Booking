@@ -1,0 +1,127 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <a href="/admin-dashboard"><ion-icon slot="start" class="menu" name="arrow-back"></ion-icon></a>
+    </ion-toolbar>
+  </ion-header>
+
+  <p>FACULTY REGISTER</p>
+
+  <ion-card>
+    <form [formGroup]="studentForm" (ngSubmit)="CreateRecord()">
+
+      <ion-item>
+        <ion-label position="floating">Faculty Code:</ion-label>
+        <ion-input formControlName="FacultyNumber"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Faculty Name:</ion-label>
+        <ion-input formControlName="FacultyName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Faculty Lecture:</ion-label>
+        <ion-input formControlName="FacultyDetails"></ion-input>
+      </ion-item>
+  
+        <ion-button color="primary" size="block" fill="solid" shape="round" (click)="CreateRecord()" [disabled]="studentForm.invalid">
+          Submit
+        </ion-button>
+    </form>
+    </ion-card>
+  
+    <ion-card *ngFor="let item of studentList" >
+      <span *ngIf="!item.isEdit; else elseBlock">
+        <ion-card-header>
+          <p>FACULTY DETAILS</p>
+
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-card-subtitle>Faculty Code</ion-card-subtitle>
+                </ion-col>
+                <ion-col>
+                  <ion-card-subtitle>:{{item.FacultyNumber}}</ion-card-subtitle>
+                </ion-col>
+              </ion-row><br>
+
+              <ion-row>
+                <ion-col>
+                  <ion-card-subtitle>Faculty Name</ion-card-subtitle>
+                </ion-col>   
+                <ion-col>
+                  <ion-card-subtitle>:{{item.FacultyName}}</ion-card-subtitle>
+                </ion-col>
+              </ion-row><br>
+
+              <ion-row>
+                <ion-col>
+                  <ion-card-subtitle>Faculty Lecture::</ion-card-subtitle>
+                </ion-col>
+
+                <ion-col>
+                  <ion-card-subtitle>:{{item.FacultyDetails}}</ion-card-subtitle>
+                </ion-col>
+              </ion-row><br>
+
+              
+            </ion-grid>
+        </ion-card-header>
+        <ion-card-content>
+  
+          <ion-button class="booki" shape="round" size="small" (click)="EditRecord(item)">
+            <ion-icon class="man" size="small" slot="icon-only" name="create"></ion-icon>
+              Update
+          </ion-button>
+
+          <ion-button href="/addhall" class="booki" shape="round" color="tertiary" size="small">
+              Add Hall
+          </ion-button>
+
+          <ion-button class="booki" shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">
+            <ion-icon class="man" size="small" slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </span>
+      <ng-template #elseBlock>
+        <ion-card-header>
+          <ion-card-title>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-card-subtitle>Details</ion-card-subtitle>
+                </ion-col>
+                <ion-col>
+                  <ion-button class="book" color="danger" size="small" (click)="item.isEdit = false">
+                    Cancel
+                  </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button class="book" color="primary" size="small" (click)="UpdateRecord(item)">
+                    Save
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          
+            <ion-item>
+              <ion-label><strong>Faculty Number:</strong></ion-label>
+              <ion-input type="number" [(ngModel)]="item.EditFacultyNumber"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label><strong>Faculty Details:</strong></ion-label>
+              <ion-input type="text" [(ngModel)]="item.EditFacultyDetails"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label><strong>Faculty Name:</strong></ion-label>
+              <ion-input type="text" [(ngModel)]="item.EditFacultyName"></ion-input>
+            </ion-item>
+
+        </ion-card-content>
+      </ng-template>
+    </ion-card>
+</ion-content>

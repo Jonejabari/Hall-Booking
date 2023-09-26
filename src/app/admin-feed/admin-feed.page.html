@@ -1,0 +1,83 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <a href="/admin-dashboard"><ion-icon slot="start" class="menu" name="arrow-back"></ion-icon></a>
+    </ion-toolbar>
+  </ion-header>
+
+  <p>NOTIFICATIONS</p>
+    
+    <ion-card>
+
+      <form [formGroup]="studentForm" (ngSubmit)="CreateRecord()">
+    
+        <ion-item>
+          <ion-label position="floating">FROM:</ion-label>
+          <ion-input formControlName="FROM"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label position="floating">MESSAGE:</ion-label>
+          <ion-input formControlName="MESSAGE"></ion-input>
+        </ion-item>
+    
+          <ion-button color="success" size="block" fill="solid" shape="round" (click)="CreateRecord()" [disabled]="studentForm.invalid">
+            SEND
+          </ion-button>
+      </form>
+    </ion-card>
+    
+      <ion-card *ngFor="let item of studentList" color="success">
+        <span *ngIf="!item.isEdit; else elseBlock">
+          <ion-card-header>
+            <ion-card-subtitle>From: {{item.FROM}}</ion-card-subtitle> 
+            <ion-card-subtitle>{{item.MESSAGE}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+    
+            <ion-button class="booki" shape="round" color="primary" size="small" (click)="EditRecord(item)">
+              <ion-icon class="man" size="small" slot="icon-only" name="create"></ion-icon>
+                Update
+            </ion-button>
+            <ion-button class="booki" shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">
+              <ion-icon class="man" size="small" slot="icon-only" name="trash"></ion-icon>
+                Delete
+            </ion-button>
+          </ion-card-content>
+        </span>
+        <ng-template #elseBlock>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <h5>Details</h5>
+                  </ion-col>
+                  <ion-col>
+                    <ion-button class="book" color="danger" size="small" (click)="item.isEdit = false">
+                      Cancel
+                    </ion-button>
+                  </ion-col>
+                  <ion-col>
+                    <ion-button class="book" color="primary" size="small" (click)="UpdateRecord(item)">
+                      Update
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+          
+            <ion-item>
+              <ion-label><strong>FROM:</strong></ion-label>
+              <ion-input type="email" [(ngModel)]="item.EditFROM"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label><strong>MESSAGE:</strong></ion-label>
+              <ion-input type="text" [(ngModel)]="item.EditMESSAGE"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ng-template>
+      </ion-card>
+  </ion-content>

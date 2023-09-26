@@ -1,0 +1,69 @@
+<ion-content>
+  <!--head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <style>
+      :root {
+        --ion-safe-area-top: 20px;
+        --ion-safe-area-bottom: 22px;
+      }
+    </style>
+    <script type="module">
+      import { menuController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+      window.menuController = menuController;
+    </script>
+  </head!-->
+
+  <body>
+    <ion-app>
+      <ion-menu side="start" content-id="main-content">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Faculty Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </ion-menu>
+
+      <div class="ion-page" id="main-content">
+        <ion-header>
+          <ion-toolbar>
+
+
+            <ion-title>Seminar Hall System</ion-title>
+          </ion-toolbar>
+
+          <a href="/vcars">
+            <ion-item>
+              <ion-label>View Faculties</ion-label>
+            </ion-item>
+          </a>
+
+          <a href="feedback">
+            <ion-item>
+              <ion-label>Notifications</ion-label>
+            </ion-item>
+          </a>
+          <a href="/panel">
+            <ion-item>
+              <ion-label>Logout</ion-label>
+            </ion-item>
+          </a>
+
+        </ion-header>
+        <ion-content class="ion-padding">
+
+        </ion-content>
+      </div>
+    </ion-app>
+
+    <script>
+      async function openMenu() {
+        await menuController.open();
+      }
+    </script>
+  </body>
+</ion-content>

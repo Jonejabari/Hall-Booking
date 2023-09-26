@@ -1,0 +1,29 @@
+
+  ion-toolbar{
+    background-color: rgb(50, 50, 50, 0.3);
+  }
+  ion-header{
+    background-color: rgb(50, 50, 50, 0.3);
+  }
+  .menu{
+    color: white;
+    height: 15px;
+    border-bottom: none;
+    margin-top: 10px;
+    width: 50px;
+    transform: rotate(-0deg);
+  }
+  form{
+    padding: 10px;
+    border-radius: 10px;
+  }
+  ion-item{
+    padding: 2px;
+    border-radius: 20px;
+  }
+  p{
+    text-align: center;
+    font-family: serif;
+    font-weight: bolder;
+    color: black;
+  }

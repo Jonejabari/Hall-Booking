@@ -1,0 +1,78 @@
+<ion-content>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Menu</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <style>
+      :root {
+        --ion-safe-area-top: 20px;
+        --ion-safe-area-bottom: 22px;
+      }
+    </style>
+    <script type="module">
+      import { menuController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+      window.menuController = menuController;
+    </script>
+  </head>
+
+  <body>
+    <ion-app>
+      <ion-menu side="start" content-id="main-content">
+        <!--ion-header>
+          <ion-toolbar>
+            <ion-title>Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            
+          </ion-list>
+        </ion-content!-->
+      </ion-menu>
+
+      <div class="ion-page" id="main-content">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <!--ion-menu-button></ion-menu-button!-->
+            </ion-buttons>
+              
+            <ion-title>ADMIN</ion-title>
+          </ion-toolbar>
+          
+            <a href="/vehicle-reg">
+              <ion-item>
+                  <ion-label>Faculty Registration</ion-label>
+              </ion-item>
+            </a>
+
+            <a href="admin-feed">
+              <ion-item>
+                  <ion-label>Send Notification</ion-label>
+              </ion-item>
+            </a>
+
+            <a href="/admin-book">
+              <ion-item>
+                 <ion-label>View Bookings</ion-label>
+              </ion-item>
+            </a>
+            <a href="/panel">
+              <ion-item>
+                <ion-label>Logout</ion-label>
+              </ion-item>
+            </a>
+           </ion-header>
+      </div>
+    </ion-app>
+
+    <script>
+      async function openMenu() {
+        await menuController.open();
+      }
+    </script>
+  </body>
+</ion-content>

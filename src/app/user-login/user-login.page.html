@@ -1,0 +1,49 @@
+<ion-content>
+<a href="/panel"><ion-icon class="menu" name="arrow-back"></ion-icon></a>
+
+    <ion-card-content>
+
+      
+      <ion-header>Login</ion-header>
+
+      <form [formGroup]="validationFormUser" (ngSubmit)="loginUser(validationFormUser.value)">
+      <div class="wrapform">
+        <ion-item>
+          <ion-input type="email" name="email" formControlName="email" placeholder="Email" required>
+            <ion-icon name="mail"></ion-icon>
+          </ion-input>
+        </ion-item>
+
+        <div>
+          <ng-container *ngFor="let validation of validationUserMessage.email">
+            <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+              {{validation.message}}
+              </div>
+          </ng-container>
+        </div>
+        <ion-item>
+          <ion-input type="password" name="password" formControlName="password" placeholder="Password" required>
+            <ion-icon name="lock-closed-sharp"></ion-icon>
+          </ion-input>
+        </ion-item>
+
+        <div>
+          <ng-container *ngFor="let validation of validationUserMessage.password">
+            <div class="error_message" *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('password').touched)">
+              {{validation.message}}
+              </div>
+          </ng-container>
+          </div>
+        </div>
+
+        <div>
+          Do not have an account?<a href="/user-sign-up"> <ion-text color="primary">REGISTER</ion-text></a> 
+        </div>
+
+        <ion-button color="primary" size="block" fill="solid" type="submit" shape="round" [disabled]="!validationFormUser.valid" >
+          Login
+        </ion-button>
+      </form>
+    </ion-card-content>
+
+</ion-content>

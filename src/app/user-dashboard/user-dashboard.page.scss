@@ -1,0 +1,242 @@
+
+/*ion-footer{
+  background: rgba(19, 18, 17, 0.3);
+  border-radius: 10px;
+  margin-top: 50px;
+}
+p{
+  text-align: justify;
+  padding: 5px;
+}
+.ab{
+  text-align: center;
+
+}
+  ion-app{
+    margin: 0px;
+    margin-top: 1px;
+    border-radius: 2px;
+    --background: rgb(50, 50, 50, 0.2);
+    
+  }
+  ion-toolbar{
+    --background:rgba(172, 159, 159, 0.2);
+    height: 80px;
+    color: white;
+    --box-shadow: 0 0 7px #eff;
+     ion-title{
+      color: #eff;
+       padding-left: 50px;
+       padding-top: 10px;
+       font-weight: bold;
+       word-spacing: 15px;
+       --background:rgba(50,50,50,0.2);
+     }
+  }
+  ion-searchbar{
+    --border-radius: 9px;
+    --box-shadow: 0 0 7px #eff;
+    --placeholder-font-weight: bold;
+  }
+  ion-list{
+    --background:rgb(50,50,50,0.2);
+  }
+  ion-item{
+    font-weight: bold;
+    --background:rgb(50,50,50,0.9);
+  }
+  a{
+    text-decoration: none;
+  }
+  img.avatar{
+		width: 20%;
+		border-radius: 4000px;
+		margin-right: 20px;
+    margin-top: 5px;
+		float: right;
+    --box-shadow: 0 0 7px #eff;
+}
+ion-menu-button{
+  width: 80px;
+  font-size: 40px;
+  margin-top: 8px;
+  color: #eff;
+}
+ion-menu{
+  --background: black;
+}
+// SLOIDE MENU
+  //SLIDEBAR
+  /* Styling the area of the slides */
+  #slideshow {
+    overflow: hidden;
+    height: 300px;
+    width: 380px;
+    margin: 0px;
+    }
+    
+    /* Style each of the sides
+    with a fixed width and height */
+    .slide {
+    float: left;
+    height: 300px;
+    width: 380px;
+    }
+    
+    /* Add animation to the slides */
+    .slide-wrapper {
+    
+    /* Calculate the total width on the
+    basis of number of slides */
+    width: calc(380px * 4);
+    
+    /* Specify the animation with the
+    duration and speed */
+    animation: slide 10s ease infinite;
+    }
+    
+    /* Set the background color
+    of each of the slides */
+   /* .slide:nth-child(1) {
+    }
+    
+    .slide:nth-child(2) {
+   
+    }
+    
+    .slide:nth-child(3) {
+    
+    }
+    
+    .slide:nth-child(4) {
+    
+    }
+    */
+    /* Define the animation
+    for the slideshow */
+    @keyframes slide {
+    
+    /* Calculate the margin-left for
+    each of the slides */
+    20% {
+      margin-left: 0px;
+    }
+    
+    40% {
+      margin-left: calc(-380px * 1);
+    }
+    
+    60% {
+      margin-left: calc(-380px * 2);
+    }
+    
+    80% {
+      margin-left: calc(-380px * 3);
+    }
+    }
+
+    .CSSgal .prevNext > div+div {
+      visibility: hidden; /* Hide all but first P/N container */
+    }
+    
+    .CSSgal .prevNext a {
+      background: #fff;
+      position: absolute;
+      width:       60px;
+      height:      60px;
+      line-height: 60px; /* If you want to place numbers */
+      text-align: center;
+      opacity: 0.7;
+      -webkit-transition: 0.3s;
+              transition: 0.3s;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+      left: 0;
+    }
+    .CSSgal .prevNext a:hover {
+      opacity: 1;
+    }
+    .CSSgal .prevNext a+a {
+      left: auto;
+      right: 0;
+    }
+    
+    /* NAVIGATION */
+    
+    .CSSgal .bullets {
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      padding: 10px 0;
+      width: 100%;
+      text-align: center;
+    }
+    .CSSgal .bullets > a {
+      display: inline-block;
+      width:       30px;
+      height:      30px;
+      line-height: 30px;
+      text-decoration: none;
+      text-align: center;
+      background: rgba(255, 255, 255, 1);
+      -webkit-transition: 0.3s;
+              transition: 0.3s;
+    }
+    .CSSgal .bullets > a+a {
+      background: rgba(255, 255, 255, 0.5); /* Dim all but first */
+    }
+    .CSSgal .bullets > a:hover {
+      background: rgba(255, 255, 255, 0.7) !important;
+    }
+    
+    /* NAVIGATION BUTTONS */
+    /* ALL: */
+    .CSSgal >s:target ~ .bullets >* {      background: rgba(255, 255, 255, 0.5);}
+    /* ACTIVE */
+    #s1:target ~ .bullets >*:nth-child(1) {background: rgba(255, 255, 255,   1);}
+    #s2:target ~ .bullets >*:nth-child(2) {background: rgba(255, 255, 255,   1);}
+    #s3:target ~ .bullets >*:nth-child(3) {background: rgba(255, 255, 255,   1);}
+    #s4:target ~ .bullets >*:nth-child(4) {background: rgba(255, 255, 255,   1);}
+    /* More slides? Add here more rules */
+    
+    /* PREV/NEXT CONTAINERS VISIBILITY */
+    /* ALL: */
+    .CSSgal >s:target ~ .prevNext >* {      visibility: hidden;}
+    /* ACTIVE: */
+    #s1:target ~ .prevNext >*:nth-child(1) {visibility: visible;}
+    #s2:target ~ .prevNext >*:nth-child(2) {visibility: visible;}
+    #s3:target ~ .prevNext >*:nth-child(3) {visibility: visible;}
+    #s4:target ~ .prevNext >*:nth-child(4) {visibility: visible;}
+    /* More slides? Add here more rules */
+    
+    /* SLIDER ANIMATION POSITIONS */
+    
+    #s1:target ~ .slider {transform: translateX(   0%); -webkit-transform: translateX(   0%);}
+    #s2:target ~ .slider {transform: translateX(-100%); -webkit-transform: translateX(-100%);}
+    #s3:target ~ .slider {transform: translateX(-200%); -webkit-transform: translateX(-200%);}
+    #s4:target ~ .slider {transform: translateX(-300%); -webkit-transform: translateX(-300%);}
+    /* More slides? Add here more rules */
+    
+    
+    /* YOU'RE THE DESIGNER! 
+       ____________________
+       All above was mainly to get it working :)
+       CSSgal CUSTOM STYLES / OVERRIDES HERE: */
+    
+    .CSSgal{
+      color: #fff;	
+      text-align: center;
+    }
+    .CSSgal .slider h2 {
+      margin-top: 40vh;
+      font-weight: 200;
+      letter-spacing: -0.06em;
+      word-spacing: 0.2em;
+      font-size: 3em;
+    }
+    .CSSgal a {
+      border-radius: 50%;
+      margin: 0 3px;
+      color: rgba(0,0,0,0.8);
+      text-decoration: none;
+    }

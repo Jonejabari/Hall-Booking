@@ -1,0 +1,144 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <a href="/vehicle-reg"><ion-icon slot="start" class="menu" name="arrow-back"></ion-icon></a>
+    </ion-toolbar>
+  </ion-header>
+
+  <p>Hall Register:</p>
+
+  <ion-card>
+    <form [formGroup]="studentForm" (ngSubmit)="CreateRecord()">
+
+      <ion-item>
+        <ion-label position="floating">Hall Name:</ion-label>
+        <ion-input formControlName="HallName"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">Hall Number:</ion-label>
+        <ion-input formControlName="HallNumber"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">Hall Location:</ion-label>
+        <ion-input formControlName="HallLocation"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Status:</ion-label>
+          <ion-select formControlName="Status" placeholder="Available">
+          <ion-select-option value="Available">Available</ion-select-option>
+          <ion-select-option value="Booked">Booked</ion-select-option>
+          </ion-select>
+      </ion-item>
+  
+        <ion-button color="primary" size="block" fill="solid" shape="round" (click)="CreateRecord()" [disabled]="studentForm.invalid">
+          Register
+        </ion-button>
+    </form>
+    </ion-card>
+  
+    <ion-card *ngFor="let item of studentList" >
+      <span *ngIf="!item.isEdit; else elseBlock">
+        <ion-card-header>
+          <p>HALL DETAILS</p>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-card-subtitle> Hall Name</ion-card-subtitle>
+              </ion-col>
+               <ion-col>
+                <ion-card-subtitle>:{{item.HallName}}</ion-card-subtitle>
+              </ion-col>
+            </ion-row><br>
+
+            <ion-row>
+              <ion-col>
+                <ion-card-subtitle>Hall Location</ion-card-subtitle>
+              </ion-col>
+
+              <ion-col>
+                <ion-card-subtitle>:{{item.HallLocation}}</ion-card-subtitle>
+              </ion-col>
+              </ion-row><br>
+
+              <ion-row>
+              <ion-col>
+                <ion-card-subtitle>Hall Number</ion-card-subtitle>
+              </ion-col>
+              <ion-col>
+                <ion-card-subtitle>:{{item.HallNumber}}</ion-card-subtitle>
+              </ion-col>
+              </ion-row><br>
+
+              <ion-row>
+              <ion-col>
+              <ion-card-subtitle>Status</ion-card-subtitle>
+              </ion-col>
+              
+              <ion-col>
+                <ion-card-subtitle>:{{item.Status}}</ion-card-subtitle>
+              </ion-col>
+              </ion-row>
+          </ion-grid>
+        </ion-card-header>
+        <ion-card-content>
+  
+          <ion-button class="booki" shape="round" color="primary" size="small" (click)="EditRecord(item)">
+            <ion-icon class="man" size="small" slot="icon-only" name="create"></ion-icon>
+              Update
+          </ion-button>
+
+          <ion-button class="booki" shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">
+            <ion-icon class="man" size="small" slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </span>
+      <ng-template #elseBlock>
+        <ion-card-header>
+          <ion-card-title>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-card-subtitle>Approve/Reject</ion-card-subtitle>
+                </ion-col>
+                <ion-col>
+                  <ion-button class="book" color="danger" size="small" (click)="item.isEdit = false">
+                    Cancel
+                  </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button class="book" color="primary" size="small" (click)="UpdateRecord(item)">
+                  Proceed
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          
+            <ion-item>
+              <ion-input type="text" [(ngModel)]="item.EditHallName"></ion-input>
+            </ion-item>
+            <ion-item>
+            <ion-input type="number" [(ngModel)]="item.EditHallNumber"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="item.EditHallLocation"></ion-input>
+          </ion-item>
+          <p>Approve or Reject</p>
+
+          <ion-item>
+            <ion-label position="floating">Status:</ion-label>
+              <ion-select type="text" [(ngModel)]="item.EditStatus" placeholder="Available">
+              <ion-select-option value="Approved">Approved</ion-select-option>
+              <ion-select-option value="Rejected">Rejected</ion-select-option>
+              </ion-select>
+          </ion-item>
+        </ion-card-content>
+      </ng-template>
+    </ion-card>
+</ion-content>

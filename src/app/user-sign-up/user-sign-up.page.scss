@@ -1,0 +1,63 @@
+ion-card{
+  margin: 25px;
+  margin-top: 40px;
+  border-radius: 20px;
+  border: 2px solid rgb(252, 251, 251);
+}
+.re{
+  text-align: center;
+  color: green;
+  font-weight: bold;
+  background-color: aqua;
+}
+p{
+  font-weight: bold;
+  color: white;
+  word-spacing: 10px;
+  border-bottom: 1px solid white;
+}
+a{
+  text-decoration: none;
+}
+ion-header{
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+.reg{
+  color: rgb(79, 79, 102);
+  width: 275px;
+  height: 48px;
+  border-radius: 10px;
+  border-bottom: 1px solid green;
+}
+ion-item{
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: round($number: 40px);
+}
+
+.footer{
+  margin-top: 15px;
+}
+.error_message{
+  color: var(--ion-color-danger);
+  font-size: small;
+  color: white;
+}
+ion-button{
+  padding-top: 15px;
+  height: 60px;
+  font-weight: bold;
+  font-size: percentage($number: 1.3);
+  word-spacing: 10px;
+}
+.menu{
+  color: rgb(12, 12, 12);
+  height: 25px;
+  border-bottom: none;
+  margin-top: 20px;
+  margin-left: none;
+  width: 50px;
+}

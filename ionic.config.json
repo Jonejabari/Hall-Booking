@@ -1,0 +1,7 @@
+{
+  "name": "CAR_RENTAL_BROKER",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

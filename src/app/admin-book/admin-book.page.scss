@@ -1,0 +1,32 @@
+
+  p{
+    text-align: center;
+    font-family: serif;
+    font-weight: bold;
+    color: black;
+  }
+  .menu{
+    color: white;
+    height: 25px;
+    border-bottom: none;
+    margin-top: 10px;
+    margin-left: none;
+    width: 50px;
+    transform: rotate(-0deg);
+  }
+  ion-toolbar{
+    --background:rgba(50,50,50,0.2);
+    color: white;
+    img.avatar{
+      width: 15%;
+      border-radius: 4000px;
+      margin-right: none;
+      margin-top: 15px;
+      float: right;
+      --box-shadow: 0 0 7px #eff;
+      }
+  }
+  .bar{
+    font-weight: bold;
+    margin-left: 100px;
+  }
