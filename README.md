@@ -1,4 +1,5 @@
-## Getting started
+## Getting started ##
 
-this is booking mobile application using ionic using angular framework.
-To test this application there is apk file to install in any device
+This is booking web application using Ionic Framework and AngularJS for front End.
+To test the application you can clone this git repo, then find apk file to install on your android.
+
